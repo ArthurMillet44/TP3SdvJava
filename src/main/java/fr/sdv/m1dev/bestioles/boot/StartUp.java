@@ -41,10 +41,19 @@ public class StartUp implements CommandLineRunner {
         animalRepository.delete(a);
         speciesRepository.delete(s);
 
+        // TP4
+        // Ex1
         System.out.println(this.speciesRepository.findFirstByCommonName("Chat"));
         System.out.println(this.speciesRepository.findAllByLatinNameContainingIgnoreCase("felis silvestris catus"));
+
+        // Ex2
         System.out.println(this.personRepository.findAllByLastnameOrFirstname("Lamarque","Paul"));
         System.out.println(this.personRepository.findAllByAgeGreaterThanEqual(45));
 
+        // Ex3
+        Species catSpecies = this.speciesRepository.findFirstByCommonName("Chat");
+        System.out.println(this.animalRepository.findAllBySpecies(catSpecies));
+        List<String> colors = List.of("Blanc", "Noir");
+        System.out.println(this.animalRepository.findAllByColorIn(colors));
     }
 }
