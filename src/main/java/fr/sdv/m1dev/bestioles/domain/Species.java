@@ -66,4 +66,13 @@ public class Species {
 
         this.animals = animals;
     }
+
+    @Override
+    public String toString() {
+        return "Species{" +
+                "id=" + id +
+                ", commonName='" + commonName + '\'' +
+                ", latinName='" + latinName + '\'' +
+                '}';
+    }
 }

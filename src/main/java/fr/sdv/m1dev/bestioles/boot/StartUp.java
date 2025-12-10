@@ -9,9 +9,6 @@ import fr.sdv.m1dev.bestioles.domain.Species;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
-import org.springframework.context.ApplicationContext;
-
-
 import java.util.List;
 @Component
 public class StartUp implements CommandLineRunner {
@@ -43,6 +40,11 @@ public class StartUp implements CommandLineRunner {
         personRepository.delete(p);
         animalRepository.delete(a);
         speciesRepository.delete(s);
+
+        System.out.println(this.speciesRepository.findFirstByCommonName("Chat"));
+        System.out.println(this.speciesRepository.findAllByLatinNameContainingIgnoreCase("felis silvestris catus"));
+        System.out.println(this.personRepository.findAllByLastnameOrFirstname("Lamarque","Paul"));
+        System.out.println(this.personRepository.findAllByAgeGreaterThanEqual(45));
 
     }
 }

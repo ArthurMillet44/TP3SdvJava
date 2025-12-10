@@ -142,4 +142,16 @@ public class Person {
     public void setAnimals(List<Animal> animals) {
         this.animals = animals;
     }
+
+    @Override
+    public String toString() {
+        return "Person{" +
+                "id=" + id +
+                ", age=" + age +
+                ", firstname='" + firstname + '\'' +
+                ", lastname='" + lastname + '\'' +
+                ", login='" + login + '\'' +
+                ", active=" + active +
+                '}';
+    }
 }
