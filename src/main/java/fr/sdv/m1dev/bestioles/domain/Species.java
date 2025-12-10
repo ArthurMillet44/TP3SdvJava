@@ -1,0 +1,69 @@
+package fr.sdv.m1dev.bestioles.domain;
+
+import jakarta.persistence.*;
+import java.util.List;
+
+@Entity
+@Table(name = "species")
+public class Species {
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Integer id;
+
+    @Column(length = 50, nullable = false)
+    private String commonName;
+
+    @Column(length = 200, nullable = false)
+    private String latinName;
+
+    @OneToMany(mappedBy = "species")
+    private List<Animal> animals;
+
+    public Species() {}
+
+    public Species(String commonName, String latinName) {
+        this.commonName = commonName;
+        this.latinName = latinName;
+    }
+
+    public Integer getId() {
+
+        return id;
+    }
+
+    public void setId(Integer id) {
+
+        this.id = id;
+    }
+
+    public String getCommonName() {
+
+        return commonName;
+    }
+
+    public void setCommonName(String commonName) {
+
+        this.commonName = commonName;
+    }
+
+    public String getLatinName() {
+
+        return latinName;
+    }
+
+    public void setLatinName(String latinName) {
+
+        this.latinName = latinName;
+    }
+
+    public List<Animal> getAnimals() {
+
+        return animals;
+    }
+
+    public void setAnimals(List<Animal> animals) {
+
+        this.animals = animals;
+    }
+}
