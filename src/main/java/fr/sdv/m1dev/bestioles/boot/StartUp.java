@@ -29,15 +29,20 @@ public class StartUp implements CommandLineRunner {
 
         Species s = new Species("Triceratops", "Triceratops horridus");
         speciesRepository.save(s);
+
         Animal a = new Animal("Noir", "Tritri", "M", s);
         animalRepository.save(a);
+
         animalRepository.findById(a.getId()).ifPresent(System.out::println);
         Person p = new Person(25,"Doe", "John","jean","test",true, List.of(),List.of(a));
         personRepository.save(p);
+
         System.out.println("\u001B[32mNb animaux:\u001B[0m " + animalRepository.findAll().size());
+
         animalRepository.findAll().forEach(animal ->
                 System.out.println(animal.getId() + " - " + animal.getName() + " - " + animal.getSpecies().getCommonName())
         );
+
         personRepository.delete(p);
         animalRepository.delete(a);
         speciesRepository.delete(s);
