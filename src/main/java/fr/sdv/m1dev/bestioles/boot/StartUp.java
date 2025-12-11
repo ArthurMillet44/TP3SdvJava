@@ -6,6 +6,7 @@ import fr.sdv.m1dev.bestioles.dal.SpeciesRepository;
 import fr.sdv.m1dev.bestioles.domain.Animal;
 import fr.sdv.m1dev.bestioles.domain.Person;
 import fr.sdv.m1dev.bestioles.domain.Species;
+import jakarta.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
@@ -72,5 +73,11 @@ public class StartUp implements CommandLineRunner {
         Animal rouge = this.animalRepository.findById(7).orElseThrow();
         System.out.println("\u001B[32mAppartient à quelqu'un ?\u001B[0m " + this.animalRepository.isAPet(rouge));
 
+        // TP6
+        // Méthode 1
+        this.personRepository.removeAllPersonsWithNoAnimal();
+
+        // Méthode 2
+        this.personRepository.createXPersons(3);
     }
 }
