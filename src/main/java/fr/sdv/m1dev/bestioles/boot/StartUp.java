@@ -79,5 +79,8 @@ public class StartUp implements CommandLineRunner {
 
         // Méthode 2
         this.personRepository.createXPersons(3);
+
+        // Bonus
+        this.personRepository.deleteAllByLastname("Lamarque");
     }
 }
