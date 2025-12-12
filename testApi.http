@@ -1,0 +1,108 @@
+### Récupérer tous les animaux
+GET http://localhost:8080/rest/animal/all
+Accept: application/json
+
+
+### Récupérer un animal par ID
+GET http://localhost:8080/rest/animal/1
+Accept: application/json
+
+
+### Créer un nouvel animal
+POST http://localhost:8080/rest/animal/create
+Content-Type: application/json
+
+{
+  "color": "Orange",
+  "name": "Tigros",
+  "sex": "M",
+  "species": {
+    "id": 1
+  }
+}
+
+
+### Mettre à jour un animal
+PUT http://localhost:8080/rest/animal/update
+Content-Type: application/json
+
+{
+  "id": 67,
+  "color": "Orange",
+  "name": "Tigrosgros",
+  "sex": "M",
+  "species": {
+    "id": 1
+  }
+}
+
+
+### Supprimer un animal
+DELETE http://localhost:8080/rest/animal/delete
+Content-Type: application/json
+
+{
+  "id": 67
+}
+
+
+### Ajouter une personne
+POST http://localhost:8080/rest/person/create
+Content-Type: application/json
+
+{
+  "age": 25,
+  "firstname": "Arthur",
+  "lastname": "Dupont",
+  "login": "arthur123",
+  "mdp": "password",
+  "active": true,
+  "roles": [
+    { "id": 1 }
+  ],
+  "animals": [
+    { "id": 1 },
+    { "id": 2 }
+  ]
+}
+
+### Mettre à jour une personne
+PUT http://localhost:8080/rest/person/update
+Content-Type: application/json
+
+{
+  "id": 145,
+  "age": 26,
+  "firstname": "Arthur",
+  "lastname": "Dupont",
+  "login": "arthur123",
+  "mdp": "newpassword",
+  "active": true,
+  "roles": [
+    { "id": 2 }
+  ],
+  "animals": [
+    { "id": 3 }
+  ]
+}
+
+### Supprimer une personne
+DELETE http://localhost:8080/rest/person/delete
+Content-Type: application/json
+
+{
+  "id": 145
+}
+
+### Récupérer toutes les personnes
+GET http://localhost:8080/rest/person/all
+Accept: application/json
+
+
+### Récupérer une personne par ID
+GET http://localhost:8080/rest/person/3
+Accept: application/json
+
+// 5- Pour aller plus loin : Listes paginées
+### Récupérer des personnes paginées
+GET http://localhost:8080/rest/person/paged?page=1&size=2

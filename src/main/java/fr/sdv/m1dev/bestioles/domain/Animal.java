@@ -1,5 +1,6 @@
 package fr.sdv.m1dev.bestioles.domain;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import java.util.List;
 
@@ -20,10 +21,12 @@ public class Animal {
     @Column(length = 255, nullable = false)
     private String sex;
 
+
     @ManyToOne
     @JoinColumn(name = "species_id", nullable = false)
     private Species species;
 
+    @JsonIgnore
     @ManyToMany(mappedBy = "animals")
     private List<Person> persons;
 
