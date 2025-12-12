@@ -24,6 +24,8 @@ public interface PersonRepository extends JpaRepository<Person, Integer>, Person
     @Query("SELECT p FROM Person p JOIN p.animals a WHERE a = :animal")
     List<Person> findAllByAnimal(@Param("animal") Animal animal);
 
+    Person findByLogin(String login);
+
     @Modifying(clearAutomatically = true)
     @Transactional
     void deleteAllByLastname(String lastname);
